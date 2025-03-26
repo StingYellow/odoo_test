@@ -10,7 +10,7 @@ class Appointment(models.Model):
     appointment_time = fields.Datetime(string='Appointment Time' , default=fields.Datetime.now)
     booking_date = fields.Date(string='Booking Date', default=fields.Date.context_today)
     gender=fields.Selection(string="Gender", related="patient_id.gender")
-    ref=fields.Char(string="Reference" , readonly=False)
+    ref=fields.Char(string="Reference")
 
 
 
