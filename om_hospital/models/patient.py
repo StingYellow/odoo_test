@@ -14,7 +14,7 @@ class HospitalPatient(models.Model):
     age = fields.Integer(string="Hospital Age", compute='_compute_age',required=True , tracking=True)
     gender = fields.Selection([('male','Male'),('female','Female')], string="Gender", required=True ,tracking=True)
 
-    active = fields.Boolean(string="Active", default=True)
+    active = fields.Boolean(string="Active", default=False, tracking=True)
 
     @api.depends('date_of_birth')
     def _compute_age(self):
