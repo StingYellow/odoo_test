@@ -12,7 +12,7 @@ class Appointment(models.Model):
     gender=fields.Selection(string="Gender", related="patient_id.gender")
     ref=fields.Char(string="Reference")
 
-
+    prescription = fields.Html(string="Prescription")
 
 
     @api.onchange('patient_id')

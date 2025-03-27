@@ -20,7 +20,9 @@
                         </page>
 
                         <page string="Pharmacy" name="pharmacy">
-                            <group><field name="booking_date"/></group>
+                            <group>
+                                <field name="booking_date"/>
+                            </group>
                         </page>
                     </notebook>
                 </sheet>
