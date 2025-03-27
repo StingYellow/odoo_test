@@ -5,7 +5,19 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <form>
+                <!--                ADD STATE-->
+                <header>
+                    <field name="state" widget="statusbar" nolable="1" options="{'clickable': '1'}"/>
+                    <!--             statusbar_visible="nhap, xac thuc, xac nhan" :chi hien thi nhung truong liet ke        -->
+                </header>
                 <sheet>
+                    <!--                ADD PRIORITY-->
+                    <div>
+                        <h2>
+                            <field name="priority" widget="priority"/>
+                        </h2>
+                    </div>
+
                     <group>
                         <group>
                             <field name="patient_id"/>
@@ -13,7 +25,9 @@
                             <field name="ref"/>
                             <field name="gender"/>
                         </group>
+
                     </group>
+                    <!--                    ADD NOTEBOOK-->
                     <notebook>
                         <page string="Prescription" name="prescription">
                             <field name="prescription" placeholder="Enter your prescription"/>
@@ -25,7 +39,35 @@
                             </group>
                         </page>
                     </notebook>
+
+
+                    <div>
+                        <group>
+                            <group>
+                                <button name="%(action_appointment)d" string="Back" type="action" class="oe_highlight"
+                                        icon="fa-hand-o-left" aria-hidden="true"/>
+                                <button name="%(action_patient)d" string="Sang patient" type="action"
+                                        class="oe_highlight"
+                                        help="ZZZAAAZZZZ"
+                                        confirm="Ban muon chac chan muon roi khoi trang?"
+                                        icon="fa-circle-thin" aria-hidden="true"/>
+                                <!--                            <a href="https://www.facebook.com/" target="_blank" class="btn btn-primary">Mở Facebook</a>-->
+
+                            </group>
+                            <group>
+                                <button name="action_open_facebook" type="object" class="btn-primary" icon="fa-facebook"
+                                        aria-hidden="true"/>
+                            </group>
+                        </group>
+                    </div>
                 </sheet>
+
+                <div>
+                    <chatter>
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </chatter>
+                </div>
             </form>
         </field>
     </record>
