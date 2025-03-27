@@ -7,4 +7,5 @@
         'views/patient.xml',
         'views/appointment.xml',
     ],
+
 }

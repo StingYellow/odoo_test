@@ -55,8 +55,10 @@
 
                             </group>
                             <group>
-                                <button name="action_open_facebook" type="object" class="btn-primary" icon="fa-facebook"
+                                <button name="action_open_facebook"  string="fb" type="object" class="btn-primary" icon="fa-facebook"
                                         aria-hidden="true"/>
+                                <button name="action_test" string="aaaa" type="object" class="oe_highlight"
+                                       />
                             </group>
                         </group>
                     </div>
@@ -65,6 +67,7 @@
                 <div>
                     <chatter>
                         <field name="message_follower_ids"/>
+                         <field name="activity_ids"/>
                         <field name="message_ids"/>
                     </chatter>
                 </div>
@@ -76,11 +79,19 @@
         <field name="name">view.appointment.list</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <list>
+            <list decoration-success="state=='xac nhan'" decoration-danger="state=='huy'">
                 <field name="patient_id"/>
                 <field name="appointment_time"/>
                 <field name="booking_date"/>
                 <field name="gender"/>
+                <field name="activity_ids" widget="list_activity"/>
+                <field name="state"
+                    decoration-success="state == 'xac nhan'"
+                       decoration-info="state =='dang xac thuc'"
+                       decoration-warning="state =='nhap'"
+                       decoration-danger="state=='huy'"
+                    widget="badge"/>
+
             </list>
         </field>
     </record>

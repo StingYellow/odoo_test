@@ -2,7 +2,7 @@ from odoo import api, fields, models
 
 class Appointment(models.Model):
     _name = 'hospital.appointment'
-    _inherit = ['mail.thread']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Hospital Appointment'
     _rec_name = 'patient_id'
 
@@ -28,4 +28,14 @@ class Appointment(models.Model):
             'type': 'ir.actions.act_url',
             'url': 'https://www.facebook.com/',
             'target': 'new',  # Mở trong tab mới
+        }
+
+    def action_test(self):
+        return {
+            'effect':{
+                'fadeout':'slow',
+                'message':'Thanh cong',
+                'type': 'rainbow_man',
+
+            }
         }
