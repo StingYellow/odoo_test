@@ -80,9 +80,9 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <list decoration-success="state=='xac nhan'" decoration-danger="state=='huy'">
-                <field name="patient_id"/>
+                <field name="patient_id" optional="hide"/>
                 <field name="appointment_time"/>
-                <field name="booking_date"/>
+                <field name="booking_date" optional="show"/>
                 <field name="gender"/>
                 <field name="activity_ids" widget="list_activity"/>
                 <field name="state"
