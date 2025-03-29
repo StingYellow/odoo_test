@@ -40,3 +40,16 @@ class Appointment(models.Model):
 
             }
         }
+
+
+    def action_xac_thuc(self):
+        for rec in self:
+            rec.state= 'dang xac thuc'
+
+    def action_xac_nhan(self):
+        for rec in self:
+            rec.state='xac nhan'
+
+    def action_huy(self):
+        for rec in self:
+            rec.state='huy'

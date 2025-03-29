@@ -7,7 +7,12 @@
             <form>
                 <!--                ADD STATE-->
                 <header>
-                    <field name="state" widget="statusbar" nolable="1" options="{'clickable': '1'}"/>
+
+                    <button name="action_xac_thuc" string="Xac thuc" type="object" invisible="state in ['xac nhan','dang xac thuc']"/>
+                    <button name="action_xac_nhan" string="Xac nhan" type="object" invisible="state =='xac nhan'"/>
+                    <button name="action_huy" string="Huy" type="object" />
+
+                    <field name="state" widget="statusbar" nolable="1"/>
                     <!--             statusbar_visible="nhap, xac thuc, xac nhan" :chi hien thi nhung truong liet ke        -->
                 </header>
                 <sheet>
@@ -25,6 +30,7 @@
                             <field name="ref"/>
                             <field name="doctor_id" widget="many2one_avatar"/>
                             <field name="gender"/>
+                            <field name="booking_date" help="Date of booking" default_focus="1"/>
                         </group>
 
                     </group>
@@ -32,12 +38,12 @@
                     <notebook>
                         <page string="Prescription" name="prescription">
                             <field name="prescription" placeholder="Enter your prescription"
-                            options="{'collaborative':true}"/>
+                            options="{'collaborative':true, 'resizable':true}"/>
                         </page>
 
                         <page string="Pharmacy" name="pharmacy">
                             <group>
-                                <field name="booking_date"/>
+                                  <field name="gender"/>
                             </group>
                         </page>
                     </notebook>
@@ -81,7 +87,7 @@
         <field name="name">view.appointment.list</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <list decoration-success="state=='xac nhan'" decoration-danger="state=='huy'">
+            <list decoration-success="state=='xac nhan'" decoration-danger="state=='huy'" sample="1" multi_edit="1">
                 <field name="patient_id" optional="hide"/>
                 <field name="appointment_time"/>
                 <field name="doctor_id" widget="many2one_avatar_user"/>
