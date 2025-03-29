@@ -11,6 +11,7 @@ class Appointment(models.Model):
     booking_date = fields.Date(string='Booking Date', default=fields.Date.context_today)
     gender=fields.Selection(string="Gender", related="patient_id.gender")
     ref=fields.Char(string="Reference")
+    doctor_id= fields.Many2one('res.users', string='Doctor')
 
     prescription = fields.Html(string="Prescription")
     priority = fields.Selection([('0','Normal'),('1','Low'),('2','High'),('3','Very High'),('4','Very High1'),('5','Very High2')],string="Priority")
