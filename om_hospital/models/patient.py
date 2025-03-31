@@ -1,6 +1,9 @@
 from odoo import fields, models , api , _
 from datetime import date
 
+from odoo.fields import Many2many
+
+
 class HospitalPatient(models.Model):
     _name = 'hospital.patient'
     _inherit = ['mail.thread']
@@ -16,6 +19,8 @@ class HospitalPatient(models.Model):
 
     active = fields.Boolean(string="Active", default=True)
     image = fields.Image(string='image')
+    tag_id = Many2many('patient.tag', string='Tags')
+
 
     @api.depends('date_of_birth')
     def _compute_age(self):
