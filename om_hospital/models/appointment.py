@@ -20,8 +20,7 @@ class Appointment(models.Model):
         string="Status", default='nhap')
 
     pharmacy_lines = fields.One2many('appointment.pharmacy.lines' ,'appointment_id',string='Pharmacy Lines')
-
-
+    hide_sale_price = fields.Boolean(string='Hide Sales Price')
 
     @api.onchange('patient_id')
     def onchange_patient_id(self):
