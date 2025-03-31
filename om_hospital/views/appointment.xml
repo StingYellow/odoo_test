@@ -8,9 +8,10 @@
                 <!--                ADD STATE-->
                 <header>
 
-                    <button name="action_xac_thuc" string="Xac thuc" type="object" invisible="state in ['xac nhan','dang xac thuc']"/>
+                    <button name="action_xac_thuc" string="Xac thuc" type="object"
+                            invisible="state in ['xac nhan','dang xac thuc']"/>
                     <button name="action_xac_nhan" string="Xac nhan" type="object" invisible="state =='xac nhan'"/>
-                    <button name="action_huy" string="Huy" type="object" />
+                    <button name="action_huy" string="Huy" type="object"/>
 
                     <field name="state" widget="statusbar" nolable="1"/>
                     <!--             statusbar_visible="nhap, xac thuc, xac nhan" :chi hien thi nhung truong liet ke        -->
@@ -38,12 +39,25 @@
                     <notebook>
                         <page string="Prescription" name="prescription">
                             <field name="prescription" placeholder="Enter your prescription"
-                            options="{'collaborative':true, 'resizable':true}"/>
+                                   options="{'collaborative':true, 'resizable':true}"/>
                         </page>
 
                         <page string="Pharmacy" name="pharmacy">
                             <group>
-                                  <field name="gender"/>
+                                <field name="pharmacy_lines">
+                                    <list editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="price_unit"/>
+                                        <field name="qty"/>
+                                    </list>
+                                    <form>
+                                        <group>
+                                            <field name="product_id"/>
+                                            <field name="price_unit"/>
+                                            <field name="qty"/>
+                                        </group>
+                                    </form>
+                                </field>
                             </group>
                         </page>
                     </notebook>
@@ -63,10 +77,11 @@
 
                             </group>
                             <group>
-                                <button name="action_open_facebook"  string="fb" type="object" class="btn-primary" icon="fa-facebook"
+                                <button name="action_open_facebook" string="fb" type="object" class="btn-primary"
+                                        icon="fa-facebook"
                                         aria-hidden="true"/>
                                 <button name="action_test" string="aaaa" type="object" class="oe_highlight"
-                                       />
+                                />
                             </group>
                         </group>
                     </div>
@@ -75,7 +90,7 @@
                 <div>
                     <chatter>
                         <field name="message_follower_ids"/>
-                         <field name="activity_ids"/>
+                        <field name="activity_ids"/>
                         <field name="message_ids"/>
                     </chatter>
                 </div>
@@ -95,11 +110,11 @@
                 <field name="gender"/>
                 <field name="activity_ids" widget="list_activity"/>
                 <field name="state"
-                    decoration-success="state == 'xac nhan'"
+                       decoration-success="state == 'xac nhan'"
                        decoration-info="state =='dang xac thuc'"
                        decoration-warning="state =='nhap'"
                        decoration-danger="state=='huy'"
-                    widget="badge"/>
+                       widget="badge"/>
 
             </list>
         </field>
