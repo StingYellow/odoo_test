@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="view_patient_tag_form" model="ir.ui.view">
+        <field name="name">view.patient.tag.form</field>
+        <field name="model">patient.tag</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_patient_tag_list" model="ir.ui.view">
+        <field name="name">view.patient.tag.list</field>
+        <field name="model">patient.tag</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+     <record id="action_patient_tag" model="ir.actions.act_window">
+        <field name="name">Patient Tag</field>
+        <field name="res_model">patient.tag</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_hospital_patient_tag_sign"
+                  name="Patient Tag"
+                  parent="menu_configuration"
+                  action="action_patient_tag"
+                  sequence="10"/>
+</odoo>
